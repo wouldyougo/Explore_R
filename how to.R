@@ -50,4 +50,26 @@ publish('mydeck', host = 'dropbox')
 knitr::opts_chunk$get()
 knitr::opts_chunk$get("comment")
 knitr::opts_chunk$set(comment = NA, results = 'asis')
+
 #
+# publish rCharts
+#
+require(RJSONIO)
+require(rCharts)
+names(iris) = gsub("\\.", "", names(iris))
+r1 <- rPlot(SepalLength ~ SepalWidth | Species, data = iris, 
+            color = 'Species', type = 'point')
+#r1$publish('Scatterplot', host = 'gist')
+options(rpubs.upload.method = "internal")
+r1$publish('Scatterplot', host = 'rpubs')
+#
+
+
+### (see ?Rprofile).
+options(rpubs.upload.method = "internal")
+
+library(RCurl) 
+# Set SSL certs globally
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+
