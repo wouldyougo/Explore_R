@@ -47,3 +47,22 @@ install_github("slidify", "ramnathv")
 install_github("slidifyLibraries", "ramnathv")
 library(slidify)
 #
+
+#
+# EMD
+#
+install.packages('EMD')
+require(EMD)
+
+help(EMD)
+library(help = "EMD")
+vignette(package = "EMD")
+browseVignettes(package = "EMD")
+#
+
+#
+# hht
+#
+install.packages('hht')
+require(hht)
+#
